@@ -23,5 +23,5 @@ _
 !requirements.txt
 
 # Nix
-./result
-./.direnv
+result
+.direnv
