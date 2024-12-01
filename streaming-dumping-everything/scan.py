@@ -163,16 +163,18 @@ class Scan:
                 }}
                 data.update(value)
 
-                print(f"write {identifier} in data.json")
-                with open("./data.json", "w+") as file:
+                print(f"write {identifier} in scan.json")
+                with open("./data/scan.json", "w+") as file:
                     file.write(json.dumps(data, indent=2))
 
         return data
 
     def get_saisons(self) -> object:
         data = {}
-        if os.path.exists("./data.json"):
-            with open("./data.json", "r") as file:
+        if not os.path.exists("./data"):
+            os.mkdir("./data")
+        if os.path.exists("./data/scan.json"):
+            with open("./data/scan.json", "r") as file:
                 data = json.loads(file.read())
 
         saisons_links = self.load_pages("https://anime-sama.fr/")

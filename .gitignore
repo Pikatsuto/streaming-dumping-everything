@@ -4,7 +4,7 @@
 # Packaging
 *.egg-info
 
-./data*
+data
 
 # Python env
 __pycache__

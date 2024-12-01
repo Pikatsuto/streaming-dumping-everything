@@ -10,8 +10,8 @@ class Download:
     def __init__(self) -> None:
         self.data = {}
 
-        if os.path.exists("./data.json"):
-            with open("./data.json", "r") as file:
+        if os.path.exists("./data/scan.json"):
+            with open("./data/scan.json", "r") as file:
                 self.data = json.loads(file.read())
 
     def download_video(self, url, path):
