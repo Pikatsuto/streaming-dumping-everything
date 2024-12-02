@@ -1,6 +1,7 @@
 from scan import Scan
 from download import Download
 from threading import Thread
+from time import sleep
 
 
 class Main:
@@ -23,17 +24,20 @@ class Main:
         print("End Download")
 
     def start(self,) -> None:
-        print("Start Programe")
+        while True:
+            print("Start Programe")
 
-        scan = Thread(target=self.start_scan)
-        scan.start()
+            scan = Thread(target=self.start_scan)
+            scan.start()
 
-        download = Thread(target=self.start_download, args=(scan,))
-        download.start()
-        download.join()
+            download = Thread(target=self.start_download, args=(scan,))
+            download.start()
+            download.join()
 
-        print("End Programe")
+            print("End Programe")
 
+            print('Sleep 2h before next loop')
+            sleep(7200)
 
 if __name__ == "__main__":
     main = Main()
