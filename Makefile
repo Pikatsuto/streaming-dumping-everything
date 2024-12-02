@@ -9,6 +9,7 @@ $(VENV):
 
 build:
 	docker build -t pikatsuto/streaming-dumping-everything .
+	docker compose up -d
 
 start: $(VENV)
 	bash streamde
