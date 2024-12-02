@@ -164,8 +164,14 @@ class Scan:
                 data.update(value)
 
                 print(f"write {identifier} in scan.json")
-                with open("./data/scan.json", "w+") as file:
-                    file.write(json.dumps(data, indent=2))
+                
+                while True:
+                    try:
+                        with open("./data/scan.json", "w+") as file:
+                            file.write(json.dumps(data, indent=2))
+                        break
+                    except Exception:
+                        continue
 
         return data
 
@@ -174,8 +180,13 @@ class Scan:
         if not os.path.exists("./data"):
             os.mkdir("./data")
         if os.path.exists("./data/scan.json"):
-            with open("./data/scan.json", "r") as file:
-                data = json.loads(file.read())
+            while True:
+                try:
+                    with open("./data/scan.json", "r") as file:
+                        data = json.loads(file.read())
+                    break
+                except Exception:
+                    continue
 
         saisons_links = self.load_pages("https://anime-sama.fr/")
         saisons_links = saisons_links.select("div#containerAjoutsAnimes a")

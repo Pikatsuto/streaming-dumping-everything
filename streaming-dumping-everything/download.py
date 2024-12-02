@@ -10,9 +10,14 @@ class Download:
     def __init__(self) -> None:
         self.data = {}
 
-        if os.path.exists("./data/scan.json"):
-            with open("./data/scan.json", "r") as file:
-                self.data = json.loads(file.read())
+        while True:
+            try:
+                if os.path.exists("./data/scan.json"):
+                    with open("./data/scan.json", "r") as file:
+                        self.data = json.loads(file.read())
+                break
+            except Exception:
+                continue
 
     def download_video(self, url, path):
         ydl_opts = {
@@ -20,7 +25,8 @@ class Download:
                 'webm[height=1080],'
                 'mp4[height=1080],'
                 'webm[height=720],'
-                'mp4[height=720]',
+                'mp4[height=720],'
+                'best',
             'outtmpl': path + '.%(ext)s'
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
