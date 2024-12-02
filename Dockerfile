@@ -1,10 +1,6 @@
 # Nix builder
 FROM debian:unstable-20241111
 
-# Copy our source and setup our working dir.
-COPY . /app
-WORKDIR /app
-
 RUN apt update \
     && apt install -y \
         python3-full \
@@ -18,9 +14,12 @@ RUN apt update \
         bash \
     && apt clean -y
 
+SHELL ["/bin/bash", "-c"]
+
+COPY . /app
+WORKDIR /app
+
 RUN python3 -m venv venv \
     && venv/bin/pip install -e .
-
-SHELL ["/bin/bash", "-c"]
 
 CMD ["make"]

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-export CHROMEDRIVER=$(whereis chromedriver | cut -d " " -f 2)
-./venv/bin/python streaming-dumping-everything
