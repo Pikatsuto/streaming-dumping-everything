@@ -8,7 +8,6 @@ $(VENV):
 	$(VBIN)/pip install -e .
 
 build:
-	nix build
 	docker build -t pikatsuto/streaming-dumping-everything .
 
 start: $(VENV)
@@ -18,4 +17,4 @@ clean:
 	rm -rf venv
 	rm -rf *.-egg-info
 
-.PHONY: all install start clean
+.PHONY: all build start clean

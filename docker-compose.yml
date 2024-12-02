@@ -1,0 +1,17 @@
+#########
+services:
+#########
+
+
+##########################################################
+  CN_Streaming_Dumping_Evrything:
+    # -------------------------------------------------- #
+    image: 'pikatsuto/streaming-dumping-everything:latest'
+    network_mode: 'bridge'
+    # -------------------------------------------------- #
+    hostname: 'CN_Streaming_Dumping_Evrything'
+    container_name: 'CN_Streaming_Dumping_Evrything'
+    # -------------------------------------------------- #
+    volumes:
+      - './data:/app/data'
+##########################################################
