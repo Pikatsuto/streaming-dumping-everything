@@ -164,8 +164,8 @@ class Scan:
                 data.update(value)
 
                 print(f"write {identifier} in scan.json")
-                
-                while True:
+
+                for i in range(0, 10):
                     try:
                         with open("./data/scan.json", "w+") as file:
                             file.write(json.dumps(data, indent=2))
@@ -180,7 +180,7 @@ class Scan:
         if not os.path.exists("./data"):
             os.mkdir("./data")
         if os.path.exists("./data/scan.json"):
-            while True:
+            for i in range(0, 10):
                 try:
                     with open("./data/scan.json", "r") as file:
                         data = json.loads(file.read())

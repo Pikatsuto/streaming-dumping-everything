@@ -10,7 +10,7 @@ class Download:
     def __init__(self) -> None:
         self.data = {}
 
-        while True:
+        for i in range(0, 10):
             try:
                 if os.path.exists("./data/scan.json"):
                     with open("./data/scan.json", "r") as file:
