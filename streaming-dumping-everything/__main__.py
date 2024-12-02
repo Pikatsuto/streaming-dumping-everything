@@ -39,6 +39,7 @@ class Main:
             print('Sleep 2h before next loop')
             sleep(7200)
 
+
 if __name__ == "__main__":
     main = Main()
     main.start()
