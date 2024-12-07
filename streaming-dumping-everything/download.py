@@ -20,11 +20,22 @@ class Download:
                 continue
 
     def download_video(self, url, path, folder, lang):
+        videos_path_with_extentions = [
+            path + ".mp4",
+            path + ".webm"
+        ]
+
+        for video_path in videos_path_with_extentions:
+            print(video_path)
+            if os.path.exists(video_path):
+                return
+
         name = path.split("/")[-1].split(" ")
         name.pop(-1)
         name = " ".join(name)
 
         for i in os.listdir(folder):
+
             old_lang: str = i.split(".")[0].split(" ")[-1]
             old_name = i.split(" ")
             old_name.pop(-1)
@@ -33,9 +44,6 @@ class Download:
             if old_lang != "VF" and lang == "VF" and old_name == name:
                 print(f"delete VO from VF : {path}")
                 os.remove(folder + i)
-
-            elif old_lang == lang and old_name == name:
-                return
 
         ydl_opts = {
             'format':
