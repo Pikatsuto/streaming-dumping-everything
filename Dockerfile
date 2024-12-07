@@ -1,5 +1,5 @@
 # Nix builder
-FROM debian:unstable-20241111
+FROM debian:trixie
 
 RUN apt update \
     && apt install -y \
