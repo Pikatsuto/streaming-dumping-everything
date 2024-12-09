@@ -10,7 +10,7 @@ Docker Repo **[Pikatsuto/streaming-dumping-everything](https://hub.docker.com/r/
 
 ## functionality:
 ### Actual
-- Scan any streaming site (under development, currently configured on anime sama)
+- Scan any streaming site (under development, currently configured on [anime sama](https://anime-sama.fr/))
 - Multi-threaded download
 - automatic relaunch (currently every 2 hours)
 - automatic player change in case of error
