@@ -3,6 +3,7 @@ all: start
 VENV = venv
 VBIN = $(VENV)/bin
 DRIVER := $(shell whereis chromedriver | cut -d " " -f 2)
+ARGS := $(shell [ -z $(ARGS) ] && echo "-sd -t 6" || echo $(ARGS))
 
 $(VENV):
 	python3 -m venv venv
@@ -14,7 +15,7 @@ build:
 	docker compose up -d
 
 start: $(VENV)
-	CHROMEDRIVER=$(DRIVER) ./venv/bin/python streaming-dumping-everything
+	CHROMEDRIVER=$(DRIVER) ./venv/bin/python streaming-dumping-everything $(ARGS)
 
 clean:
 	rm -rf venv

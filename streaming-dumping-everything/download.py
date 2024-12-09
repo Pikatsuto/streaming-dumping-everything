@@ -7,7 +7,8 @@ import json
 
 
 class Download:
-    def __init__(self) -> None:
+    def __init__(self, nb_thread) -> None:
+        self.nb_thread = nb_thread
         self.data = {}
 
         for i in range(0, 10):
@@ -72,7 +73,7 @@ class Download:
                 except Exception:
                     sleep(randrange(2, 4))
 
-        with Pool(processes=6) as pool:
+        with Pool(processes=self.nb_thread) as pool:
             for episodeId in self.data:
                 episode = self.data[episodeId]
                 sleep(randrange(2, 4))

@@ -12,6 +12,9 @@ services:
     hostname: 'CN_Streaming_Dumping_Evrything'
     container_name: 'CN_Streaming_Dumping_Evrything'
     # -------------------------------------------------- #
+    environment:
+      ARGS: "-sd -t 6"
+    # -------------------------------------------------- #
     volumes:
       - './data:/app/data'
 ##########################################################

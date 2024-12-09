@@ -22,4 +22,6 @@ WORKDIR /app
 RUN python3 -m venv venv \
     && venv/bin/pip install -e .
 
+ENV ARGS=""
+
 CMD ["make"]
